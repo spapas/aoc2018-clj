@@ -1,4 +1,6 @@
-(require ['clojure.string :as 'str])
+(ns aoc2018.day1
+  (:require [clojure.string :as str])
+  )
 
 (defn get-lines [file]
   (str/split-lines (slurp file)))
@@ -10,7 +12,7 @@
 (def day1-input-parsed (map parse-int day1-input))
 (def answer1  (apply + day1-input-parsed)) 
 
-(defn answer2 [input frequency-accumulator existing-freqs]
+(defn answer2-finder [input frequency-accumulator existing-freqs]
   (let [
     current-element (first input)
     current-frequency-acc (+ current-element frequency-accumulator)]
@@ -24,4 +26,4 @@
     )
   )
 
-(answer2 (cycle day1-input-parsed) 0 #{})
+(def answer2  (answer2-finder (cycle day1-input-parsed) 0 #{}))
