@@ -2,7 +2,7 @@
   (:require [aoc2018.common :as co])
   )
 
-(def day2-input (co/get-lines "day2"))
+(def day2-input (co/get-lines "input/day2"))
 (def letter-frequencies (map (comp vals frequencies) day2-input))
 
 ; Create a fuction that checks if collection contains the value and

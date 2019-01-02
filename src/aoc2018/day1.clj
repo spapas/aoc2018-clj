@@ -2,7 +2,7 @@
   (:require [aoc2018.common :as co])
   )
 
-(def day1-input (co/get-lines "day1"))
+(def day1-input (co/get-lines "input/day1"))
 (def day1-input-parsed (map co/parse-int day1-input))
 (def answer1  (apply + day1-input-parsed)) 
 
