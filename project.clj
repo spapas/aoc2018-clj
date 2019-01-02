@@ -6,5 +6,5 @@
   :dependencies [[org.clojure/clojure "1.9.0"]]
   :main ^:skip-aot aoc2018.core
   :target-path "target/%s"
-  :plugins [[cider/cider-nrepl "0.18.0"]]
+  :plugins [[cider/cider-nrepl "0.18.0"][org.clojars.benfb/lein-gorilla "0.5.0"]]
   :profiles {:uberjar {:aot :all}})
