@@ -6,7 +6,7 @@
 
 (defn parser[line]
   (apply assoc {}
-         (interleave ["id" "left" "top" "width" "height"]
+         (interleave [:id :left :top :width :height]
                      (map co/parse-int 
                           (rest 
                             (re-find #"^#(\d+)\ @\ (\d+),(\d+):\ (\d+)x(\d+)"  line
@@ -24,7 +24,7 @@
        (re-find #"^#(\d+)\ @\ (\d+),(\d+):\ (\d+)x(\d+)")
        rest
        (map co/parse-int )
-       (interleave ["id" "left" "top" "width" "height"])
+       (interleave [:id :left :top :width :height])
        (apply assoc {})
        )
   )
@@ -36,6 +36,31 @@
 
 (def day3-input-parsed (map parser day3-input))
 
-(take 5 day3-input-parsed)
+(first day3-input-parsed)
 
+; A reducer for individual elements: 
+(defn claim-reducer-el [matrix xyel ]
+  (let [x (nth xyel 0) y (nth xyel 1) id (nth xyel 2) oldset (get-in matrix [x y])]
+        (assoc-in matrix [x y] (conj oldset id))
+        )
+  )
+
+; A reducer for all the elements: Just call the individual element reducer
+; with the correct parameters. So for each element the individual reduce
+; will be called with a vector of its x and y ranges (and id). 
+(defn claim-reducer [matrix el]
+  (let [left (:left el) top (:top el) width (:width el) height (:height el)
+        xrange (range  left (+ left width)) yrange (range  top (+ top height))]
+  (reduce claim-reducer-el matrix (for [x xrange y yrange] [x y (:id el)])))
+  )
+
+; Create an initial matrix (1000 vec of 1000 set each)
+(def initial-matrix (vec (replicate 1000 (vec (replicate 1000 #{})))))
+; Add the ids of all claims to the sets using the total reducer
+(def claims (reduce claim-reducer initial-matrix day3-input-parsed ))
+; To find the answer just count which sets have more than 1 element
+(def answer1 (reduce + (for [x (range 0 1000) y (range 0 1000) 
+            :when (< 1 ( count (get-in claims [x y])))]
+            1
+            )))
 
