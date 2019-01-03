@@ -1,5 +1,6 @@
 (ns aoc2018.day3
-  (:require [aoc2018.common :as co])
+  (:require [ aoc2018.common :as co]
+             [ clojure.set :as set])
   )
 
 (def day3-input (co/get-lines "input/day3"))
@@ -64,3 +65,11 @@
             1
             )))
 
+; Same logic as before, just put the claims that have more than 1 element in a set
+(def overlapping-claims (reduce into  #{}  (for [x (range 0 1000) y (range 0 1000) 
+            :when (< 1 ( count (get-in claims [x y])))]
+            (vec  (get-in claims [x y]))
+            ) ))
+
+; And diff that value with the set of ids
+(def answer2 (set/difference  (set (map :id day3-input-parsed ) ) overlapping-claims))
