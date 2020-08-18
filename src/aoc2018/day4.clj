@@ -8,7 +8,6 @@
 (def parse-pattern 
   #"\[\d{4}-\d{2}-\d{2} \d{2}:(\d{2})\] (falls|wakes|Guard) (?:#(\d+))?")
 
-
 (defn pr-input []
   (doseq [z (sort day4-input)] (println z))
    )
