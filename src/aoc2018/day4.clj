@@ -8,7 +8,6 @@
 (def parse-pattern 
   #"\[\d{4}-\d{2}-\d{2} \d{2}:(\d{2})\] (falls|wakes|Guard) (?:#(\d+))?")
 
-(def answer1 42)
 (def answer2 43)
 
 (defn pr-input []
@@ -64,3 +63,14 @@
 
 (def most-sleepy-guard (apply max-key get-total-sleep-time (vec guards)))
 (def most-sleepy-guard-sleep-time (get-total-sleep-time most-sleepy-guard))
+
+(defn inc-sleep-times [sleep-times period]
+  (let [from (nth period 0) to (nth period 1)]
+  (reduce (fn[acc m] (update acc m #(if (nil? %) 1 (inc %) ))) sleep-times (range from to))))
+
+(def sleepy-guard-sleepy-minutes (reduce inc-sleep-times {} (nth most-sleepy-guard 1)))
+
+(def most-sleepy-minute (apply max-key #(nth % 1) (vec sleepy-guard-sleepy-minutes)))
+
+
+(def answer1 (* (first most-sleepy-guard) (first most-sleepy-minute)))
