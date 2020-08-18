@@ -18,7 +18,24 @@
      (react? top c) r-stack
      :else (cons c stack))))
 
-(def reduced-str (reduce reducer '() day5-input))
+(defn get-reduced-str [s]
+  (reduce reducer '() s))
+
+(def reduced-str (get-reduced-str day5-input))
 
 (def answer1 (count (str/join reduced-str)))
-(def answer2 43)
+
+(def polymers (set (map str/lower-case day5-input)))
+
+(def reduced-string-lengths (map
+                      #(as-> % v
+                        (str "(?i)" v)
+                        (re-pattern v)
+                        (str/replace day5-input v "")
+                        (get-reduced-str v)
+                        (str/join v)
+                        (count v))
+                       polymers))
+
+
+(def answer2 (apply min reduced-string-lengths))
