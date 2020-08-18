@@ -56,4 +56,11 @@
                              new-guards (assoc guards id new-guard)]
                              (assoc acc :guards new-guards)))))
 
-(def guards (reduce guard-reducer {:guards {} :asleep 0} parsed-lines))
+(def guards (:guards (reduce guard-reducer {:guards {} :asleep 0} parsed-lines)))
+
+(defn get-total-sleep-time[guard]
+  (let [times (nth guard 1)]
+    (reduce #(+ %1 (- (nth %2 1) (nth %2 0))) 0 times)))
+
+(def most-sleepy-guard (apply max-key get-total-sleep-time (vec guards)))
+(def most-sleepy-guard-sleep-time (get-total-sleep-time most-sleepy-guard))
