@@ -27,7 +27,7 @@
                                 (nth r 3)) 
                                 o-id)
 
-        ] [minute action id]))
+        ] {:id id :action action :minute minute}))
 
 (defn parse-lines [l o-id acc]
   (let [f (first l)
@@ -36,6 +36,24 @@
     (if (nil? f) 
       acc
       (let [pl (parse-line f o-id)
-            id (nth pl 2)]
+            id (:id pl)]
         (parse-lines r id (conj acc pl ))
     ))))
+
+(def parsed-lines (parse-lines day4-input 0 []))
+
+(defn guard-reducer [acc entry]
+  (let [guards (:guards acc)
+        asleep (:asleep acc)
+        action (:action entry)
+        id     (:id entry)
+        minute (:minute entry)]
+    (cond 
+      (= action :id) acc
+      (= action :asleep) (assoc acc :asleep minute)
+      (= action :awake) (let [old-guard (get guards id [])
+                             new-guard (conj old-guard [asleep minute])
+                             new-guards (assoc guards id new-guard)]
+                             (assoc acc :guards new-guards)))))
+
+(def guards (reduce guard-reducer {:guards {} :asleep 0} parsed-lines))
