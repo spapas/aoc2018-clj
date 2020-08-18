@@ -68,9 +68,27 @@
   (let [from (nth period 0) to (nth period 1)]
   (reduce (fn[acc m] (update acc m #(if (nil? %) 1 (inc %) ))) sleep-times (range from to))))
 
-(def sleepy-guard-sleepy-minutes (reduce inc-sleep-times {} (nth most-sleepy-guard 1)))
+(defn get-sleepy-minutes [guard]
+  (reduce inc-sleep-times {} (nth guard 1)))
 
-(def most-sleepy-minute (apply max-key #(nth % 1) (vec sleepy-guard-sleepy-minutes)))
+(def sleepy-guard-sleepy-minutes (get-sleepy-minutes most-sleepy-guard ))
 
+(defn get-most-sleepy-minute [guard-minutes] 
+  (apply max-key #(nth % 1) (vec guard-minutes)))
+
+(def most-sleepy-minute (get-most-sleepy-minute sleepy-guard-sleepy-minutes))
 
 (def answer1 (* (first most-sleepy-guard) (first most-sleepy-minute)))
+
+(def all-guard-sleepy-minutes (map 
+                                #(vec [(nth % 0) (get-sleepy-minutes %)]) 
+                                guards))
+(def all-guard-most-sleepy-minute (map 
+                                    #(vec [(nth % 0) (get-most-sleepy-minute (nth % 1))]) 
+                                    all-guard-sleepy-minutes))
+
+(def most-sleepy-guard-by-minute
+  (apply max-key #(-> % second second) all-guard-most-sleepy-minute))
+
+(def answer2 (* (first most-sleepy-guard-by-minute) (-> most-sleepy-guard-by-minute
+                                                        second first )))
