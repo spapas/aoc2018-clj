@@ -9,8 +9,7 @@
   #"\[\d{4}-\d{2}-\d{2} \d{2}:(\d{2})\] (falls|wakes|Guard) (?:#(\d+))?")
 
 (defn pr-input []
-  (doseq [z (sort day4-input)] (println z))
-   )
+  (co/pr-input day4-input))
 
 (defn parse-line [l o-id]
   (let [r (re-find parse-pattern l)
