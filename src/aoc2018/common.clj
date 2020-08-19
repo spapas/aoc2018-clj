@@ -11,3 +11,5 @@
 (defn pr-input [inp]
   (doseq [z (sort inp)] (println z))
    )
+
+(defn abs [n] (max n (- n)))
