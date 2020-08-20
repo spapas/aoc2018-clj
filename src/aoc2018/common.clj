@@ -13,3 +13,8 @@
    )
 
 (defn abs [n] (max n (- n)))
+
+(defn in? 
+  "true if coll contains elm"
+  [coll elm]  
+  (some #(= elm %) coll))
