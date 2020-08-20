@@ -56,4 +56,9 @@
 
 (def answer1 (second (apply max-key second point-counter-no-outer)))
 
-(def answer2 43)
+(defn is-safe [p]
+  (if (< (reduce + (map #(manh % p) points)) 10000) true false))
+
+(def safe-grid (map is-safe grid))
+
+(def answer2 (reduce + (map #(if % 1 0) safe-grid)))
