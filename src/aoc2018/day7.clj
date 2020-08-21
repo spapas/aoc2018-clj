@@ -52,4 +52,16 @@
 
 (def answer1 (str/join (dosteps [] all-steps)))
 
+(defn get-task-duration [task]
+  (+ (inc (- (int (.charAt task 0)) (int \A))) 60))
+
+(defstruct worker :name :task :remain)
+
+(def initial-workers (map #(struct worker (inc %) nil nil) (range 5)))
+
+(def steps-order (dosteps [] all-steps))
+
+(defn simulation [steps workers t]
+  )
+
 (def answer2 43)
