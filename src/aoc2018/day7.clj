@@ -57,11 +57,26 @@
 
 (defstruct worker :name :task :remain)
 
-(def initial-workers (map #(struct worker (inc %) nil nil) (range 5)))
+(def initial-workers (map #(struct worker (inc %) nil 0) (range 5)))
 
 (def steps-order (dosteps [] all-steps))
 
-(defn simulation [steps workers t]
-  )
+(defn remaining-time [workers]
+  (:remain (apply max-key :remain workers))
+(defn dec-remain [worker]
+  (update worker :remain #(dec %)))
+
+(defn simulation [taken remaining workers t]
+  (if (empty? remaining)
+    (+ t (remaining-time workers))
+    (let
+      [picked (pick-step taken remaining)
+       new-workers (map dec-remain workers) 
+       free-worker (filter dec-remain workers) 
+       ]
+      (if (nil? picked) 
+        (recur taken remaining new-workers (inc t))
+        (recur (conj taken picked) (disj remaining picked)))))
+
 
 (def answer2 43)
