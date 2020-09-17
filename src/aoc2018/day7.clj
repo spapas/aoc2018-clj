@@ -1,25 +1,25 @@
 (ns aoc2018.day7
-  (:require [ aoc2018.common :as co]
-            [ clojure.string :as str]
-             [ clojure.set :as set]))
+  (:require [aoc2018.common :as co]
+            [clojure.string :as str]
+            [clojure.set :as set]))
 
-(def day7-input (co/get-lines "input/day7" ))
+(def day7-input (co/get-lines "input/day7"))
 
-(def parse-pattern 
+(def parse-pattern
   #"Step (\w) must be finished before step (\w) can begin.")
 
-(def parsed-input 
+(def parsed-input
   (map #(let [r (re-find parse-pattern %)] [(second r) (nth r 2)]) day7-input))
 
 (def first-steps
   (set/difference
-    (set (map first parsed-input))
-    (set (map second parsed-input))))
+   (set (map first parsed-input))
+   (set (map second parsed-input))))
 
 (def all-steps
   (set/union
-    (set (map first parsed-input))
-    (set (map second parsed-input))))
+   (set (map first parsed-input))
+   (set (map second parsed-input))))
 
 (def left-steps
   (set (map first parsed-input)))
@@ -31,9 +31,8 @@
   (first (sort chars)))
 
 (defn get-step-prereqs [step]
-  (set (map first (filter #(= step (second %)) parsed-input)))
-  )
-  
+  (set (map first (filter #(= step (second %)) parsed-input))))
+
 (def prereqs (into {} (map #(vec [% (get-step-prereqs %)]) all-steps)))
 
 (defn step-ready [step taken]
@@ -47,7 +46,7 @@
   (if (empty? remaining)
     taken
     (let
-      [picked (pick-step taken remaining)]
+     [picked (pick-step taken remaining)]
       (recur (conj taken picked) (disj remaining picked)))))
 
 (def answer1 (str/join (dosteps [] all-steps)))
@@ -62,21 +61,32 @@
 (def steps-order (dosteps [] all-steps))
 
 (defn remaining-time [workers]
-  (:remain (apply max-key :remain workers))
+  (:remain (apply max-key :remain workers)))
+
 (defn dec-remain [worker]
   (update worker :remain #(dec %)))
 
-(defn simulation [taken remaining workers t]
+(defn ready-steps [taken remaining acc]
+  (let [picked (pick-step taken remaining)]
+    (if (nil? picked) acc
+        (recur taken (disj remaining picked) (conj acc picked)))))
+
+(defn step-workers [workers]
+  (let [dec-workers (map dec-remain workers)]
+       
+       ))
+
+(defn simulation [done remaining workers t]
   (if (empty? remaining)
     (+ t (remaining-time workers))
     (let
-      [picked (pick-step taken remaining)
-       new-workers (map dec-remain workers) 
-       free-worker (filter dec-remain workers) 
-       ]
-      (if (nil? picked) 
+     [rsteps (ready-steps done remaining [])
+      dec-workers (map dec-remain workers)
+      
+      free-worker (filter dec-remain workers)]
+      (if (empty? rsteps)
         (recur taken remaining new-workers (inc t))
-        (recur (conj taken picked) (disj remaining picked)))))
+        (recur (conj taken picked) (disj remaining picked) [] (inc t))))))
 
 
 (def answer2 43)
