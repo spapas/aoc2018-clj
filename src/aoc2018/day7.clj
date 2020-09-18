@@ -64,29 +64,47 @@
   (:remain (apply max-key :remain workers)))
 
 (defn dec-remain [worker]
-  (update worker :remain #(dec %)))
+  (update worker :remain #(if (> % 0) (dec %) 0)))
 
 (defn ready-steps [taken remaining acc]
   (let [picked (pick-step taken remaining)]
     (if (nil? picked) acc
         (recur taken (disj remaining picked) (conj acc picked)))))
 
-(defn step-workers [workers]
-  (let [dec-workers (map dec-remain workers)]
-       
-       ))
+(defn free-workers? [workers]
+  (some #(= (:remain %) 0) workers))
+
+(defn do-workers-tasks [workers tasks]
+  (if (or (empty? tasks) (not (free-workers? workers)))
+    workers
+    (let [el (first (filter #(= (:remain %) 0) workers))
+          idx (.indexOf workers el)
+          task (first tasks)
+          duration (get-task-duration task)
+          new-workers (update-in
+                       workers [idx]
+                       #(struct worker (:name %) task duration))]
+      (recur new-workers (rest tasks)))))
 
 (defn simulation [done remaining workers t]
+  (println workers)
+  (println t)
+  
   (if (empty? remaining)
     (+ t (remaining-time workers))
     (let
-     [rsteps (ready-steps done remaining [])
-      dec-workers (map dec-remain workers)
-      
-      free-worker (filter dec-remain workers)]
-      (if (empty? rsteps)
-        (recur taken remaining new-workers (inc t))
-        (recur (conj taken picked) (disj remaining picked) [] (inc t))))))
+     [dec-workers (into [] (map dec-remain workers))
+      new-done (map :task (filter #(and
+                                    (= (:remain %) 0)
+                                    (not (nil? (:task %)))) dec-workers))
+      ;free-workers (filter #(= (:remain %) 0) workers)
+      tot-done (concat done new-done)
+      new-remaining (set/difference remaining (set tot-done))
+     ; new-remaining (remove #(co/in? tot-done %) remaining)
+      rtasks (ready-steps tot-done new-remaining #{})
+      new-workers (do-workers-tasks dec-workers rtasks)]
+      (recur tot-done new-remaining new-workers (inc t)))))
 
-
-(def answer2 43)
+(def answer2 
+  (simulation [] all-steps initial-workers 0))
+; 1717 too high
