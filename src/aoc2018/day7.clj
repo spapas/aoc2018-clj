@@ -4,6 +4,8 @@
             [clojure.set :as set]))
 
 (def day7-input (co/get-lines "input/day7"))
+;(def day7-input (co/get-lines "input/day7-test"))
+;(def day7-test-input (co/get-lines "input/day7-test"))
 
 (def parse-pattern
   #"Step (\w) must be finished before step (\w) can begin.")
@@ -57,11 +59,14 @@
 (defstruct worker :name :task :remain)
 
 (def initial-workers (map #(struct worker (inc %) nil 0) (range 5)))
+;(def initial-workers (map #(struct worker (inc %) nil 0) (range 2)))
+
 
 (def steps-order (dosteps [] all-steps))
 
 (defn remaining-time [workers]
   (:remain (apply max-key :remain workers)))
+  
 
 (defn dec-remain [worker]
   (update worker :remain #(if (> % 0) (dec %) 0)))
@@ -87,9 +92,10 @@
       (recur new-workers (rest tasks)))))
 
 (defn simulation [done remaining workers t]
+  ; correct answer is t-1
   (println workers)
-  (println t)
-  
+  (println (+ t(remaining-time workers)))
+
   (if (empty? remaining)
     (+ t (remaining-time workers))
     (let
@@ -99,7 +105,8 @@
                                     (not (nil? (:task %)))) dec-workers))
       ;free-workers (filter #(= (:remain %) 0) workers)
       tot-done (concat done new-done)
-      new-remaining (set/difference remaining (set tot-done))
+      active-tasks (set (map #(:task %) workers))
+      new-remaining (set/difference (set/difference remaining (set tot-done)) active-tasks)
      ; new-remaining (remove #(co/in? tot-done %) remaining)
       rtasks (ready-steps tot-done new-remaining #{})
       new-workers (do-workers-tasks dec-workers rtasks)]
