@@ -3,6 +3,7 @@
 (ns aoc2018.day8
   (:require [aoc2018.common :as co]
             [clojure.string :as str]
+            [clojure.zip :as z]
             [clojure.set :as set]))
 
 (def input
@@ -36,34 +37,54 @@
 
 (def part1 (do-read input))
 
-(defstruct node :node_num :meta_num :nodes :metadata :parent)
+(defstruct node :node_num :meta_num :nodes :metadata)
 
-(defn node-reader2 [st tree curr]
-  (let [top (first st)
-        rst (rest st)
-        nn (first tree)
-        nm (second tree)
+
+
+(defn tree-reader [nums tree]
+  (println nums)
+  (println tree)
+  (let [top (z/node tree)
+        nn (first nums)
+        nm (second nums)
         node_num (:node_num top)
         meta_num (:meta_num top)]
-    (println top)
-    (if (empty? tree)
-      curr
-      (if (= node_num 0)
-        (recur
-         rst
-         (drop meta_num tree)
-         (let [parent (:parent (assoc curr :metadata (take meta_num tree)))]
-           (if (nil? parent) curr parent)))
-        (let [new_node (struct node nn nm [] [] curr)]
-          (recur (cons new_node
-                       (cons
-                        (update (update top :nodes #(conj % new_node)) :node_num dec)
-                        rst))
-                 (drop 2 tree)
-                 new_node))))))
 
-(defn do-read2 [tree]
-  (let [ft (first tree)
-        st (second tree)
-        root (struct node ft st [] [] nil)]
-    (node-reader2 (list root) (drop 2 tree) root)))
+    (if (empty? nums)
+      tree
+      (if (= node_num 0)
+        (if (= (count nums) meta_num)
+          (z/edit tree #(assoc % :metadata (take meta_num nums)))
+          (recur
+           (drop meta_num nums)
+           (z/up (z/edit tree #(assoc % :metadata (take meta_num nums))))))
+
+        (recur
+         (drop 2 nums)
+         (-> tree
+             (z/edit #(update % :node_num dec))
+             (z/append-child (struct node nn nm [] []))
+             (z/down)
+             (z/rightmost)))))))
+
+
+(defn read-tree [nums]
+  (let [ft (first nums)
+        st (second nums)
+        root (struct node ft st [] [])
+        tree (z/zipper (fn [_] true) :nodes #(assoc %1 :nodes %2) root)]
+    (tree-reader (drop 2 nums) tree)))
+
+(defn get-node-from-meta [node meta]
+  (cond
+    (= 0 meta) nil
+    (> meta (count (:nodes node))) nil
+    true (get (vec (:nodes node)) (dec meta))))
+
+(defn get-node-value [node]
+  (println node)
+  (if (nil? node)
+    0
+    (if (= 0 (count (:nodes node)))
+      (reduce + (:meta node))
+      (map #(get-node-value (get-node-from-meta node %)) (:meta node)))))
