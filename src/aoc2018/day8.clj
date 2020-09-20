@@ -43,22 +43,24 @@
         rst (rest st)
         nn (first tree)
         nm (second tree)
-        new_node (struct node nn nm [] [] curr)
         node_num (:node_num top)
         meta_num (:meta_num top)]
-    (println node_num)
-    (println meta_num)
-
+    (println top)
     (if (empty? tree)
       curr
       (if (= node_num 0)
         (recur
          rst
          (drop meta_num tree)
-         (:parent (assoc curr :metadata (take meta_num tree))))
-        (recur (cons new_node (update (update top :nodes #(conj % new_node)) :node_num dec))
-               (drop 2 tree)
-               new_node)))))
+         (let [parent (:parent (assoc curr :metadata (take meta_num tree)))]
+           (if (nil? parent) curr parent)))
+        (let [new_node (struct node nn nm [] [] curr)]
+          (recur (cons new_node
+                       (cons
+                        (update (update top :nodes #(conj % new_node)) :node_num dec)
+                        rst))
+                 (drop 2 tree)
+                 new_node))))))
 
 (defn do-read2 [tree]
   (let [ft (first tree)
