@@ -9,17 +9,16 @@
 (defn place-marble [game marble]
   game)
 
-(defn put [l idx v]
-  (do-put [l idx v '()])
-  )
 
-(defn do-put [l idx v acc ]
+(defn do-put [l idx v acc]
   (if (zero? idx) (concat acc (cons v l))
       (let [f (first l)
             r (rest l)]
-        (recur r (dec idx) v (cons f acc)
-        )
-      )
+        (recur r (dec idx) v (cons f acc)))))
+
+
+(defn put [l idx v]
+  (do-put l idx v '())
   )
 
 (defn get-idx [game places dir]
