@@ -8,8 +8,8 @@
 
 (def input
   (map co/parse-int
-       ;(str/split (str/trim (slurp "input/day8")) #" ")))
-       (str/split "2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2" #" ")))
+       (str/split (str/trim (slurp "input/day8")) #" ")))
+       ;(str/split "2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2" #" ")))
 
 (defn node-reader [st tree acc]
   (let [top (first st)
@@ -39,11 +39,9 @@
 
 (defstruct node :node_num :meta_num :nodes :metadata)
 
-
-
 (defn tree-reader [nums tree]
-  (println nums)
-  (println tree)
+  ;(println nums)
+  ;(println tree)
   (let [top (z/node tree)
         nn (first nums)
         nm (second nums)
@@ -81,10 +79,13 @@
     (> meta (count (:nodes node))) nil
     true (get (vec (:nodes node)) (dec meta))))
 
+(def tree-input (z/node (read-tree input)))
+
 (defn get-node-value [node]
-  (println node)
+  ;(println node)
   (if (nil? node)
     0
     (if (= 0 (count (:nodes node)))
-      (reduce + (:meta node))
-      (map #(get-node-value (get-node-from-meta node %)) (:meta node)))))
+      (reduce + (:metadata node))
+      (reduce +
+      (map #(get-node-value (get-node-from-meta node %)) (:metadata node))))))
