@@ -5,6 +5,7 @@
 ; Happy coding! ♥️
 
 ; Jacking in...
+; nREPL Connection was closed
 ; Hooking up nREPL sessions...
 ; Connected session: clj
 ; TIPS: 
@@ -14,128 +15,566 @@
 ;   - `alt+up` and `alt+down` traverse up and down the REPL command history
 ;      when the cursor is after the last contents at the prompt
 ;   - File URLs in stacktrace frames are peekable and clickable.
-clj::aoc2018.core=> answer2
-; Jack-in done.
-; Syntax error compiling at (.calva/output-window/output.calva-repl:1:14471).
-; Unable to resolve symbol: answer2 in this context
-[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
- {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
- {:file "Compiler.java" :line 7181 :method "eval" :flags [:tooling :java]}
- {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
- {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "AFn.java" :line 22 :method "run" :flags [:java]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
- {:file "AFn.java" :line 22 :method "run" :flags [:java]}
- {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
 clj::aoc2018.core=> 
-#'aoc2018.day8/get-node-value
-clj::aoc2018.day8=> 
-answer2
-; Syntax error compiling at (.calva/output-window/output.calva-repl:1:14471).
-; Unable to resolve symbol: answer2 in this context
-[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
- {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
- {:file "Compiler.java" :line 7181 :method "eval" :flags [:tooling :java]}
- {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
- {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "AFn.java" :line 22 :method "run" :flags [:java]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
- {:file "AFn.java" :line 22 :method "run" :flags [:java]}
- {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
-clj::aoc2018.day8=> 
-(0 3 10 11 12 1 1 0 1 99 2 1 1 2)
-[{:node_num 2, :meta_num 3, :nodes [], :metadata []} nil]
-(10 11 12 1 1 0 1 99 2 1 1 2)
-[{:node_num 0, :meta_num 3, :nodes [], :metadata []} {:l [], :pnodes ({:node_num 1, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil}]
-(1 1 0 1 99 2 1 1 2)
-[{:node_num 1, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}), :metadata []} {:changed? true}]
-(0 1 99 2 1 1 2)
-[{:node_num 1, :meta_num 1, :nodes [], :metadata []} {:l [{:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}], :pnodes ({:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil}]
-(99 2 1 1 2)
-[{:node_num 0, :meta_num 1, :nodes [], :metadata []} {:l [], :pnodes ({:node_num 0, :meta_num 1, :nodes ({:node_num 0, :meta_num 1, :nodes [], :metadata []}), :metadata []} {:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:l [{:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}], :pnodes ({:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil, :changed? true}, :r nil}]
-(2 1 1 2)
-[{:node_num 0, :meta_num 1, :nodes ({:node_num 0, :meta_num 1, :nodes [], :metadata (99)}), :metadata []} {:l [{:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}], :pnodes ({:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil, :changed? true}]
-(1 1 2)
-[{:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 0, :meta_num 1, :nodes ({:node_num 0, :meta_num 1, :nodes [], :metadata (99)}), :metadata (2)}), :metadata []} {:changed? true}]
-#'aoc2018.day8/tree-input
-clj::aoc2018.day8=> 
-answer2
-; Syntax error compiling at (.calva/output-window/output.calva-repl:1:14471).
-; Unable to resolve symbol: answer2 in this context
-[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
- {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
- {:file "Compiler.java" :line 7181 :method "eval" :flags [:tooling :java]}
- {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
- {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "AFn.java" :line 22 :method "run" :flags [:java]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
- {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
- {:file "AFn.java" :line 22 :method "run" :flags [:java]}
- {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
-clj::aoc2018.day8=> 
-(0 3 10 11 12 1 1 0 1 99 2 1 1 2)
-[{:node_num 2, :meta_num 3, :nodes [], :metadata []} nil]
-(10 11 12 1 1 0 1 99 2 1 1 2)
-[{:node_num 0, :meta_num 3, :nodes [], :metadata []} {:l [], :pnodes ({:node_num 1, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil}]
-(1 1 0 1 99 2 1 1 2)
-[{:node_num 1, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}), :metadata []} {:changed? true}]
-(0 1 99 2 1 1 2)
-[{:node_num 1, :meta_num 1, :nodes [], :metadata []} {:l [{:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}], :pnodes ({:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil}]
-(99 2 1 1 2)
-[{:node_num 0, :meta_num 1, :nodes [], :metadata []} {:l [], :pnodes ({:node_num 0, :meta_num 1, :nodes ({:node_num 0, :meta_num 1, :nodes [], :metadata []}), :metadata []} {:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:l [{:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}], :pnodes ({:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil, :changed? true}, :r nil}]
-(2 1 1 2)
-[{:node_num 0, :meta_num 1, :nodes ({:node_num 0, :meta_num 1, :nodes [], :metadata (99)}), :metadata []} {:l [{:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)}], :pnodes ({:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 1, :meta_num 1, :nodes [], :metadata []}), :metadata []}), :ppath {:changed? true}, :r nil, :changed? true}]
-(1 1 2)
-[{:node_num 0, :meta_num 3, :nodes ({:node_num 0, :meta_num 3, :nodes [], :metadata (10 11 12)} {:node_num 0, :meta_num 1, :nodes ({:node_num 0, :meta_num 1, :nodes [], :metadata (99)}), :metadata (2)}), :metadata []} {:changed? true}]
-#'aoc2018.day8/tree-input
-clj::aoc2018.day8=> 
-#'aoc2018.day8/get-node-value
-clj::aoc2018.day8=> 
-(get-node-value tree-input)
+; Jack-in done.
+#'aoc2018.day9/game
+clj::aoc2018.day9=> [1 2 3]
+[1 2 3]
+clj::aoc2018.day9=> 
+                    
+()[1 2 3]
 ()
-clj::aoc2018.day8=> 
-#'aoc2018.day8/get-node-value
-clj::aoc2018.day8=> 
-(get-node-value tree-input)
-66
-clj::aoc2018.day8=> 
-#'aoc2018.day8/get-node-value
-clj::aoc2018.day8=> 
-(get-node-value tree-input)
-22306
-clj::aoc2018.day8=> 
+clj::aoc2018.day9=> 
+(count {1 2 3 4 })
+2
+clj::aoc2018.day9=> 
+(count (keys {1 2 3 4 }))
+2
+clj::aoc2018.day9=> (new java.util/ArrayList )
+; Syntax error (IllegalArgumentException) compiling new at (.calva/output-window/output.calva-repl:33:21).
+; Unable to resolve classname: java.util/ArrayList
+[{:file "Compiler.java" :line 7115 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 5467 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 4029 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7105 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7174 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(.new java.util/ArrayList )
+; Syntax error (ClassNotFoundException) compiling at (.calva/output-window/output.calva-repl:64:1).
+; java.util
+[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 986 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 5467 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 4029 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7105 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7174 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(java.util/ArrayList. )
+; Execution error (ClassNotFoundException) at java.net.URLClassLoader/findClass (URLClassLoader.java:435).
+; java.util
+[{:file "URLClassLoader.java" :line 435 :method "findClass" :flags [:java]}
+ {:file "DynamicClassLoader.java" :line 69 :method "findClass" :flags [:java]}
+ {:file "ClassLoader.java" :line 589 :method "loadClass" :flags [:java]}
+ {:file "DynamicClassLoader.java" :line 77 :method "loadClass" :flags [:java]}
+ {:file "ClassLoader.java" :line 522 :method "loadClass" :flags [:java]}
+ {:file "Class.java" :line -2 :method "forName0" :flags [:java]}
+ {:file "Class.java" :line 427 :method "forName" :flags [:java]}
+ {:file "RT.java" :line 2211 :method "classForName" :flags [:java]}
+ {:file "RT.java" :line 2224 :method "classForNameNonLoading" :flags [:java]}
+ {:file "Compiler.java" :line 1041 :method "maybeClass" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7045 :method "macroexpand1" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7075 :method "macroexpand" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7161 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(java.util/ArrayList )
+; Execution error (ClassNotFoundException) at java.net.URLClassLoader/findClass (URLClassLoader.java:435).
+; java.util
+[{:file "URLClassLoader.java" :line 435 :method "findClass" :flags [:java]}
+ {:file "DynamicClassLoader.java" :line 69 :method "findClass" :flags [:java]}
+ {:file "ClassLoader.java" :line 589 :method "loadClass" :flags [:java]}
+ {:file "DynamicClassLoader.java" :line 77 :method "loadClass" :flags [:java]}
+ {:file "ClassLoader.java" :line 522 :method "loadClass" :flags [:java]}
+ {:file "Class.java" :line -2 :method "forName0" :flags [:java]}
+ {:file "Class.java" :line 427 :method "forName" :flags [:java]}
+ {:file "RT.java" :line 2211 :method "classForName" :flags [:java]}
+ {:file "RT.java" :line 2224 :method "classForNameNonLoading" :flags [:java]}
+ {:file "Compiler.java" :line 1041 :method "maybeClass" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7045 :method "macroexpand1" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7075 :method "macroexpand" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7161 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(java.util/ArrayList. )
+; Execution error (ClassNotFoundException) at java.net.URLClassLoader/findClass (URLClassLoader.java:435).
+; java.util
+[{:file "URLClassLoader.java" :line 435 :method "findClass" :flags [:java]}
+ {:file "DynamicClassLoader.java" :line 69 :method "findClass" :flags [:java]}
+ {:file "ClassLoader.java" :line 589 :method "loadClass" :flags [:java]}
+ {:file "DynamicClassLoader.java" :line 77 :method "loadClass" :flags [:java]}
+ {:file "ClassLoader.java" :line 522 :method "loadClass" :flags [:java]}
+ {:file "Class.java" :line -2 :method "forName0" :flags [:java]}
+ {:file "Class.java" :line 427 :method "forName" :flags [:java]}
+ {:file "RT.java" :line 2211 :method "classForName" :flags [:java]}
+ {:file "RT.java" :line 2224 :method "classForNameNonLoading" :flags [:java]}
+ {:file "Compiler.java" :line 1041 :method "maybeClass" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7045 :method "macroexpand1" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7075 :method "macroexpand" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7161 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(.new java.util/ArrayList )
+; Syntax error (ClassNotFoundException) compiling at (.calva/output-window/output.calva-repl:203:1).
+; java.util
+[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 986 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 5467 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 4029 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7105 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7174 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(new java.util/ArrayList )
+; Syntax error (IllegalArgumentException) compiling new at (.calva/output-window/output.calva-repl:237:1).
+; Unable to resolve classname: java.util/ArrayList
+[{:file "Compiler.java" :line 7115 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 5467 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 4029 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7105 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7174 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(new java.util.ArrayList )
+[]
+clj::aoc2018.day9=> 
+(.add 0 (new java.util.ArrayList ) "k")
+; Execution error (IllegalArgumentException) at aoc2018.day9/eval18006 (form-init13653793919460163701.clj:271).
+; No matching method add found taking 2 args for class java.lang.Long
+[{:file "Reflector.java" :line 127 :method "invokeMatchingMethod" :flags [:java]}
+ {:file "Reflector.java" :line 102 :method "invokeInstanceMethod" :flags [:java]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:271" :fn "eval18006"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:271" :fn "eval18006"  :method "invoke" :flags [:dup :project :repl :clj]}
+ {:file "Compiler.java" :line 7177 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(.add (new java.util.ArrayList ) 0 "k")
+nil
+clj::aoc2018.day9=> 
+(.add (new java.util.ArrayList ) 0 "k")
+nil
+clj::aoc2018.day9=> 
+(def al (new java.util.ArrayList))
+#'aoc2018.day9/al
+clj::aoc2018.day9=> 
+(.add al 0 "k")
+nil
+clj::aoc2018.day9=> 
+(.add al 0 "la")
+nil
+clj::aoc2018.day9=> 
+al
+["la" "k"]
+clj::aoc2018.day9=> 
+; Syntax error compiling if at (src/aoc2018/day9.clj:20:5).
+; Too few arguments to if
+[{:file "Compiler.java" :line 7115 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 2829 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6436 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7095 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 5467 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 4029 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7105 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7095 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 38 :method "access$300" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 596 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 7181 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+#'aoc2018.day9/get-idx
+clj::aoc2018.day9=> 
+add
+; Syntax error compiling at (.calva/output-window/output.calva-repl:1:14472).
+; Unable to resolve symbol: add in this context
+[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 7181 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> (zero? 1)
+false
+clj::aoc2018.day9=> (cons 3 '())
+(3)
+clj::aoc2018.day9=> 
+#'aoc2018.day9/put
+clj::aoc2018.day9=> (put )
+; Syntax error compiling at (src/aoc2018/day9.clj:13:7).
+; Unable to resolve symbol: i in this context
+[{:file "Compiler.java" :line 6808 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 1020 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 7102 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 2824 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 6120 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 5467 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 4029 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7105 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7095 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 38 :method "access$300" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 596 :method "parse" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7107 :method "analyzeSeq" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6789 :method "analyze" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 6745 :method "analyze" :flags [:dup :tooling :java]}
+ {:file "Compiler.java" :line 7181 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+#'aoc2018.day9/put
+clj::aoc2018.day9=> (put '(1 2 3) 0 99)
+(99 1 2 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 1 99)
+(1 99 2 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 2 99)
+(1 2 99 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+(1 2 3 99)
+clj::aoc2018.day9=> 
+#'aoc2018.day9/do-put
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+(1 2 3 99)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 0 99)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 1 99)
+(1 99 2 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 2 99)
+(1 2 99 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 4 99)
+(1 2 3 nil 99)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+(1 2 3 99)
+clj::aoc2018.day9=> 
+#'aoc2018.day9/get-idx
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+; Execution error (ArityException) at aoc2018.day9/put (form-init13653793919460163701.clj:13).
+; Wrong number of args (1) passed to: aoc2018.day9/do-put
+[{:file "AFn.java" :line 429 :method "throwArity" :flags [:java]}
+ {:file "AFn.java" :line 32 :method "invoke" :flags [:java]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:13" :fn "put"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:12" :fn "put"  :method "invoke" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:478" :fn "eval21384"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:478" :fn "eval21384"  :method "invoke" :flags [:dup :project :repl :clj]}
+ {:file "Compiler.java" :line 7177 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+; Execution error (ArityException) at aoc2018.day9/put (form-init13653793919460163701.clj:13).
+; Wrong number of args (1) passed to: aoc2018.day9/do-put
+[{:file "AFn.java" :line 429 :method "throwArity" :flags [:java]}
+ {:file "AFn.java" :line 32 :method "invoke" :flags [:java]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:13" :fn "put"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:12" :fn "put"  :method "invoke" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:507" :fn "eval21402"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:507" :fn "eval21402"  :method "invoke" :flags [:dup :project :repl :clj]}
+ {:file "Compiler.java" :line 7177 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+#'aoc2018.day9/put
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+; Execution error (ArityException) at aoc2018.day9/put (form-init13653793919460163701.clj:21).
+; Wrong number of args (1) passed to: aoc2018.day9/do-put
+[{:file "AFn.java" :line 429 :method "throwArity" :flags [:java]}
+ {:file "AFn.java" :line 32 :method "invoke" :flags [:java]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:21" :fn "put"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:20" :fn "put"  :method "invoke" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:538" :fn "eval21577"  :method "invokeStatic" :flags [:project :repl :clj]}
+ {:file "file:/home/serafeim/progr/clojure/aoc2018-clj/src/aoc2018/day9.clj:538" :fn "eval21577"  :method "invoke" :flags [:dup :project :repl :clj]}
+ {:file "Compiler.java" :line 7177 :method "eval" :flags [:tooling :java]}
+ {:file "Compiler.java" :line 7132 :method "eval" :flags [:dup :tooling :java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3214" :fn "eval"  :method "invokeStatic" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/core.clj:3210" :fn "eval"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:91" :fn "evaluate/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:437" :fn "repl/read-eval-print"  :method "invoke" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl/fn"  :method "invoke" :flags [:clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:458" :fn "repl"  :method "invokeStatic" :flags [:dup :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar!/clojure/main.clj:368" :fn "repl"  :method "doInvoke" :flags [:clj]}
+ {:file "RestFn.java" :line 1523 :method "invoke" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:84" :fn "evaluate"  :method "invokeStatic" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:56" :fn "evaluate"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/interruptible_eval.clj:155" :fn "interruptible-eval/fn/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:190" :fn "session-exec/main-loop/fn"  :method "invoke" :flags [:tooling :clj]}
+ {:file "jar:file:/home/serafeim/.m2/repository/nrepl/nrepl/0.7.0/nrepl-0.7.0.jar!/nrepl/middleware/session.clj:189" :fn "session-exec/main-loop"  :method "invoke" :flags [:tooling :clj]}
+ {:file "AFn.java" :line 22 :method "run" :flags [:java]}
+ {:file "Thread.java" :line 832 :method "run" :flags [:java]}]
+clj::aoc2018.day9=> 
+#'aoc2018.day9/put
+clj::aoc2018.day9=> 
+(put '(1 2 3) 3 99)
+(3 2 1 99)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 2 99)
+(2 1 99 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 1 99)
+(1 99 2 3)
+clj::aoc2018.day9=> 
+(put '(1 2 3) 0 99)
+(99 1 2 3)
+clj::aoc2018.day9=> 
