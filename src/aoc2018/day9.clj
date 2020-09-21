@@ -1,3 +1,6 @@
+;(require '[aoc2018.day9 :as day9 :refer :all] :reload-all)
+
+
 (ns aoc2018.day9
   (:require [aoc2018.common :as co]
             [clojure.string :as str]
@@ -18,14 +21,18 @@
 
 
 (defn put [l idx v]
-  (do-put l idx v '())
-  )
+  (do-put l idx v '()))
 
 (defn get-idx [game places dir]
   (let [marbles (:marbles game)
         curr (:curr game)
-        mc (count marbles)
-        ]
-  (if (= dir :cw)
-    (if ( > (+ curr places) mc) ())
-    ())))
+        mc (count marbles)]
+    (if (= dir :cw)
+      (let [c+p (+ curr places)]
+        (if (>= c+p mc)
+          (mod c+p mc)
+          c+p))
+      (let [c-p (- curr places)]
+        (if (>= c-p 0)
+          c-p
+          (mod c-p mc))))))
