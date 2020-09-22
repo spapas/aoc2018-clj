@@ -16,8 +16,11 @@
         (recur r (dec idx) v (cons f acc)))))
 
 (defn put [l idx v]
-  (do-put l idx v '()))
+  ;(do-put l idx v '()))
+  ;(vec (concat (take idx l) [v] (drop idx l))))
+(apply conj (subvec l 0 idx) v (subvec l idx (count l)) ))
 
+  
 (defn get-idx [game places dir]
   (let [marbles (:marbles game)
         curr (:curr game)
@@ -33,9 +36,10 @@
           (mod c-p mc))))))
 
 (defn get-val [l idx]
-  (if (zero? idx)
-    (first l)
-    (recur (rest l) (dec idx))))
+  (get l idx))
+  ;(if (zero? idx)
+  ;  (first l)
+  ;  (recur (rest l) (dec idx))))
 
 (defn do-del-idx [l idx acc]
   (if (zero? idx)
@@ -43,7 +47,9 @@
     (recur (rest l) (dec idx) (cons (first l) acc))))
 
 (defn del-idx [l idx]
-  (do-del-idx l idx '()))
+  (apply conj (subvec l 0 idx) (subvec l (inc idx) (count l))))
+  ;(vec (concat (take idx l) (drop (inc idx) l))))
+  ;(do-del-idx l idx '()))
 
 (defn place-marble [g marble]
   (if (= 0 (mod marble 23))
@@ -63,13 +69,13 @@
                            (put marbles (inc c1) marble)
                            c2)
 
-         :else (struct game (reverse (cons marble (reverse marbles))) (count marbles))))]))
+         :else (struct game (conj marbles marble) (count marbles))))]))
 
-(def players 10)
-(def limit (inc 1618))
+(def players 479)
+(def limit (inc 71035))
 
 (defn play-game [g turn scores]
-  (println turn)
+  (if (zero? (mod turn 1000)) (do (println turn) true)  )
   (if (= turn limit)
     scores
     (let [[c-score n-game] (place-marble g turn)
