@@ -9,7 +9,6 @@
 
 (defstruct game :marbles :curr)
 
-
 (defn do-put [l idx v acc]
   (if (zero? idx) (concat (reverse acc) (cons v l))
       (let [f (first l)
@@ -57,12 +56,29 @@
            c2 (get-idx g 2 :cw)
            marbles (:marbles g)
            curr (:curr g)]
-       (println c1)
-       (println c2)
+
        (cond
          (= c1 c2) (struct game [0 1] 1)
          (< c1 c2) (struct game
                            (put marbles (inc c1) marble)
                            c2)
 
-         :else (struct game (reverse (cons marble (reverse marbles))))))]))
+         :else (struct game (reverse (cons marble (reverse marbles))) (count marbles))))]))
+
+(def players 10)
+(def limit (inc 1618))
+
+(defn play-game [g turn scores]
+  (println turn)
+  (if (= turn limit)
+    scores
+    (let [[c-score n-game] (place-marble g turn)
+          player (mod turn players)]
+      (recur n-game (inc turn) (update scores player #(if (nil? %) c-score (+ c-score %)))))))
+
+
+(def answer1 (get (apply max-key #(get % 1)
+                         (play-game (struct game [0] 0) 1 {})) 1))
+(println "~~~")
+(println answer1)
+(println "~~~")
