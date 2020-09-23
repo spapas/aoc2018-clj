@@ -5,7 +5,10 @@
   (:require [aoc2018.common :as co]
             [clojure.string :as str]
             [clojure.zip :as z]
-            [clojure.set :as set]))
+            [clojure.set :as set]
+            [clojure.data.finger-tree :as ft]))
+
+
 
 (defstruct game :marbles :curr)
 
@@ -15,12 +18,16 @@
             r (rest l)]
         (recur r (dec idx) v (cons f acc)))))
 
-(defn put [l idx v]
+(defn put [cdl idx v]
   ;(do-put l idx v '()))
   ;(vec (concat (take idx l) [v] (drop idx l))))
-(apply conj (subvec l 0 idx) v (subvec l idx (count l)) ))
+  ;(apply conj (subvec l 0 idx) v (subvec l idx (count l))))
+  (if (= idx (count cdl))
+    (conj cdl v)
+    (let [[l vv r] (ft/ft-split-at cdl idx)]
+      (ft/ft-concat (into l [v vv]) r))))
 
-  
+
 (defn get-idx [game places dir]
   (let [marbles (:marbles game)
         curr (:curr game)
@@ -35,8 +42,9 @@
           c-p
           (mod c-p mc))))))
 
-(defn get-val [l idx]
-  (get l idx))
+(defn get-val [cdl idx]
+  (nth cdl idx))
+  ;(get l idx))
   ;(if (zero? idx)
   ;  (first l)
   ;  (recur (rest l) (dec idx))))
@@ -46,8 +54,11 @@
     (concat (reverse acc) (rest l))
     (recur (rest l) (dec idx) (cons (first l) acc))))
 
-(defn del-idx [l idx]
-  (apply conj (subvec l 0 idx) (subvec l (inc idx) (count l))))
+(defn del-idx [cdl idx]
+  (let [[l _ r] (ft/ft-split-at cdl idx)]
+    (ft/ft-concat l r)))
+  ;(apply conj (subvec l 0 idx) (subvec l (inc idx) (count l))))
+
   ;(vec (concat (take idx l) (drop (inc idx) l))))
   ;(do-del-idx l idx '()))
 
@@ -64,27 +75,44 @@
            curr (:curr g)]
 
        (cond
-         (= c1 c2) (struct game [0 1] 1)
+         (= c1 c2) (struct game (conj marbles 1) 1)
          (< c1 c2) (struct game
                            (put marbles (inc c1) marble)
                            c2)
 
          :else (struct game (conj marbles marble) (count marbles))))]))
 
+;(def players 479)
+;(def limit (inc 71035))
 (def players 479)
-(def limit (inc 71035))
+(def limit-pt1 (inc 71035))
 
-(defn play-game [g turn scores]
-  (if (zero? (mod turn 1000)) (do (println turn) true)  )
+(defn play-game [g turn scores limit]
+  ;(println g)
+  ;(if (zero? (mod turn 1000)) (do (println turn) true))
   (if (= turn limit)
     scores
     (let [[c-score n-game] (place-marble g turn)
           player (mod turn players)]
-      (recur n-game (inc turn) (update scores player #(if (nil? %) c-score (+ c-score %)))))))
+      (recur
+       n-game
+       (inc turn)
+       (update scores player #(if (nil? %) c-score (+ c-score %)))
+       limit))))
 
 
-(def answer1 (get (apply max-key #(get % 1)
-                         (play-game (struct game [0] 0) 1 {})) 1))
+(defn answer1 [limit] (get (apply max-key #(get % 1)
+                         (play-game
+                          (struct game (ft/counted-double-list 0) 0)
+                          1
+                          {}
+                          limit)) 1))
+(println "PT1 ")
+(println (answer1 limit-pt1))
 (println "~~~")
-(println answer1)
+
+(def limit-pt2 (inc (* 100 71035)))
+
+(println "PT2 ")
+(println (answer1 limit-pt2))
 (println "~~~")
