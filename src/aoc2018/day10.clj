@@ -6,7 +6,8 @@
             [clojure.string :as str]
             [clojure.set :as set]))
 
-(def input (co/get-lines "input/day10-test"))
+(def input (co/get-lines "input/day10"))
+;(def input (co/get-lines "input/day10-test"))
 
 (def parse-pattern
   #"position=<([0-9\ \-]+),([0-9\ \-]+)> velocity=<([0-9\ \-]+),([0-9\ \-]+)>")
@@ -27,14 +28,39 @@
         xmax (first (apply max-key first positions))
         ymin (second (apply min-key second positions))
         ymax (second (apply max-key second positions))]
-
+    (println xmin xmax ymin ymax)
     (for [y (range ymin ymax) x (range xmin xmax)]
       (let [s (if (contains? pset [x y]) "#" " ")
-            e (if (= x (dec xmax)) "\n" "" )]
-      
-      (print (str s e))))))
+            e (if (= x (dec xmax)) "\n" "")]
 
-(display parsed-input)
+        (print (str s e))))))
+
+(defn step [pt]
+  (let [x (-> pt :pos first)
+        y (-> pt :pos second)
+        dx (-> pt :vel first)
+        dy (-> pt :vel second)]
+    {:pos [(+ x dx) (+ y dy)] :vel [dx dy]}))
+
+(defn step-all [pts]
+  (map step pts))
+
+(defn dist-from-center [pt]
+  (let [x (-> pt :pos first)
+        y (-> pt :pos second)]
+    (+ (Math/abs x) (Math/abs y))))
+
+(defn tot-dist-from-center [pts]
+  (reduce + (map dist-from-center pts)))
+
+(defn find-closest-dist [pts prev-dist cnt ]
+  (let [next-pts (step-all pts)
+        next-dist (tot-dist-from-center next-pts)]
+    (println prev-dist next-dist cnt)
+    (if (> prev-dist next-dist) 
+      (recur next-pts next-dist (inc cnt))
+      pts
+      )))
 
 (def answer1
   42)
