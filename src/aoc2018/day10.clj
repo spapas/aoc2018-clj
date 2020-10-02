@@ -29,9 +29,9 @@
         ymin (second (apply min-key second positions))
         ymax (second (apply max-key second positions))]
     (println xmin xmax ymin ymax)
-    (for [y (range ymin ymax) x (range xmin xmax)]
+    (for [y (range (dec ymin) (inc ymax)) x (range (dec xmin) (inc xmax))]
       (let [s (if (contains? pset [x y]) "#" " ")
-            e (if (= x (dec xmax)) "\n" "")]
+            e (if (= x xmax) "\n" "")]
 
         (print (str s e))))))
 
@@ -53,6 +53,15 @@
 (defn tot-dist-from-center [pts]
   (reduce + (map dist-from-center pts)))
 
+(defn area [pts]
+  (let [positions (map #(:pos %1) pts)
+        xmin (first (apply min-key first positions))
+        xmax (first (apply max-key first positions))
+        ymin (second (apply min-key second positions))
+        ymax (second (apply max-key second positions))]
+    (* (- xmax xmin) (- ymax ymin))))
+
+
 (defn find-closest-dist [pts prev-dist cnt ]
   (let [next-pts (step-all pts)
         next-dist (tot-dist-from-center next-pts)]
@@ -62,5 +71,15 @@
       pts
       )))
 
+(defn find-smallest-area [pts prev-area cnt]
+  (let [next-pts (step-all pts)
+        next-area (area next-pts)]
+    (println prev-area next-area cnt)
+    (if (> prev-area next-area)
+      (recur next-pts next-area (inc cnt))
+      pts)))
+
+(def aligned-stars (find-smallest-area parsed-input (area parsed-input) 0))
+
 (def answer1
-  42)
+  (display aligned-stars))
