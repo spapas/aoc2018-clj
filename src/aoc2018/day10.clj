@@ -62,14 +62,14 @@
     (* (- xmax xmin) (- ymax ymin))))
 
 
-(defn find-closest-dist [pts prev-dist cnt ]
+(defn find-closest-dist [pts prev-dist cnt]
   (let [next-pts (step-all pts)
         next-dist (tot-dist-from-center next-pts)]
     (println prev-dist next-dist cnt)
     (if (> prev-dist next-dist) 
       (recur next-pts next-dist (inc cnt))
-      pts
-      )))
+      pts)))
+      
 
 (defn find-smallest-area [pts prev-area cnt]
   (let [next-pts (step-all pts)
@@ -83,3 +83,10 @@
 
 (def answer1
   (display aligned-stars))
+
+(def answer2 
+  (/ 
+   (- 
+    (first (:pos (first aligned-stars))) 
+    (first (:pos (first parsed-input)))) 
+   (first (:vel (first parsed-input)))))
