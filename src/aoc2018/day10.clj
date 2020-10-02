@@ -20,5 +20,21 @@
           {:pos [x y]
            :vel [dx dy]}) input))
 
+(defn display [pts]
+  (let [positions (map #(:pos %1) pts)
+        pset (into #{} positions)
+        xmin (first (apply min-key first positions))
+        xmax (first (apply max-key first positions))
+        ymin (second (apply min-key second positions))
+        ymax (second (apply max-key second positions))]
+
+    (for [y (range ymin ymax) x (range xmin xmax)]
+      (let [s (if (contains? pset [x y]) "#" " ")
+            e (if (= x (dec xmax)) "\n" "" )]
+      
+      (print (str s e))))))
+
+(display parsed-input)
+
 (def answer1
   42)
