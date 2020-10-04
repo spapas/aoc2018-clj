@@ -8,7 +8,7 @@
 
 (def input 5719)
 
-(def grid-sn 18)
+(def grid-sn input)
 
 (defn get-hundreds [num]
   (quot (mod num 1000) 100))
@@ -25,3 +25,16 @@
         s4 (get-hundreds s3)
         ]
      (- s4 5)))
+
+(def power-levels 
+  (into {} (for [x (range 300) y (range 300)] [[x y], (power-level [x y])])))
+
+(defn sum-power-levels [x y]
+  (reduce + (for [i (range x (+ 3 x)) j (range y (+ 3 y))]
+   (power-level [i j] ))))
+
+(def power-levels-squares
+  (for [x (range 298) y (range 298)] [[x y] (sum-power-levels x y)])) 
+
+(def max-power-level-square 
+  (apply max-key second power-levels-squares))
