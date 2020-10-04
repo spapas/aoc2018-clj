@@ -18,3 +18,5 @@
   "true if coll contains elm"
   [coll elm]  
   (some #(= elm %) coll))
+
+(defn ipow [b e] (Math/round (Math/pow b e)))
