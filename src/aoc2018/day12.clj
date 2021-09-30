@@ -103,13 +103,7 @@
 
 (defn rpad-always [st]
   (let [lidx (first (last st))]
-    (conj
-     (conj
-      (conj
-       (conj st [(inc lidx) 0])
-       [(+ lidx 2) 0])
-      [(+ lidx 3) 0])
-     [(+ lidx 4) 0])))
+    (reverse (into [[(+ lidx 4) 0] [(+ lidx 3) 0] [(+ lidx 2) 0] [(inc lidx) 0]] (reverse st)))))
 
 
 (defn l-to-n [l]
@@ -123,20 +117,27 @@
   (println z)
   z)
 
+(defn show-state [st]
+  (->> st sort (map #(second %)) (map #(if (= % 0) "." "#" )) str/join )
+  )
+
 (defn next-state [st]
   (let [pst (rpad-always (lpad-always st))
         idx (map first pst)]
     (->> (partition 5 1 pst)
-         (d "1: ")
+         (d "1: " )
          
          (map l-to-n)
-         (d "1: ")
          (map #(get rules-dict % 0))
-         (map vector idx)
+         (d "1: ")
+         (map #(vector (+ %1 2) %2) idx)
          (into [])
          (rpad)
          (lpad)
          )))
+
+(defn next-state2 [st]
+  )
 
 
 (defn looper [st t]
@@ -145,9 +146,6 @@
     (recur (next-state st) (dec t))))
 
 
-; 2490 too high
-; 1588 not correct
-; 560 not correct
 (def part1
   (->> (looper initial 20)
        (filter #(-> % second zero? not))
