@@ -162,6 +162,8 @@
 (def part2
   (+ (* (- 50000000000 200) 34) (calc-value (looper initial 200))))
 
+
+
 "
 2296
 2249	-47
