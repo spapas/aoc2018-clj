@@ -457,3 +457,115 @@ true
 clj꞉aoc2018.day13꞉> 
 ([[100 21] 2])
 clj꞉aoc2018.day13꞉> 
+; Syntax error compiling at (c:\progr\clojure\aoc2018-clj\src\aoc2018\day13.clj:132:26).
+; Unable to resolve symbol: collitions in this context
+clj꞉aoc2018.day13꞉> 
+; Syntax error compiling at (c:\progr\clojure\aoc2018-clj\src\aoc2018\day13.clj:132:26).
+; Unable to resolve symbol: collitions-points in this context
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/clean-collitions
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/looper2
+clj꞉aoc2018.day13꞉> 
+; Execution error (IllegalArgumentException) at aoc2018.day13/clean-collitions$fn (form-init6674051749752952857.clj:133).
+; contains? not supported on type: clojure.lang.LazySeq
+clj꞉aoc2018.day13꞉> 
+; Syntax error compiling at (c:\progr\clojure\aoc2018-clj\src\aoc2018\day13.clj:133:26).
+; Unable to resolve symbol: lazy-contains? in this context
+clj꞉aoc2018.day13꞉> 
+; Evaluating file: day13.clj
+; Syntax error compiling at (C:\progr\clojure\aoc2018-clj\src\aoc2018\day13.clj:133:26).
+; Unable to resolve symbol: lazy-contains? in this context
+; Evaluation of file day13.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉aoc2018.day13꞉> 
+clj꞉aoc2018.day13꞉> 
+; Syntax error compiling at (c:\progr\clojure\aoc2018-clj\src\aoc2018\day13.clj:133:26).
+; Unable to resolve symbol: lazy-contains? in this context
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.common/lazy-contains?
+clj꞉aoc2018.common꞉> 
+; Syntax error compiling at (c:\progr\clojure\aoc2018-clj\src\aoc2018\day13.clj:133:26).
+; Unable to resolve symbol: lazy-contains? in this context
+clj꞉aoc2018.day13꞉> 
+nil
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/clean-collitions
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/looper2
+clj꞉aoc2018.day13꞉> 
+clj꞉aoc2018.day13꞉> 
+
+clj꞉aoc2018.day13꞉> 
+(carts-collitions (conj initial-carts (Cart. [44 106] \v 0)))
+([[44 106] 2])
+clj꞉aoc2018.day13꞉> 
+(clean-collitions (conj initial-carts (Cart. [44 106] \v 0)))
+({:pos [3 32], :direction \^, :turns 0}
+ {:pos [126 141], :direction \<, :turns 0}
+ {:pos [99 72], :direction \>, :turns 0}
+ {:pos [118 60], :direction \^, :turns 0}
+ {:pos [138 23], :direction \^, :turns 0}
+ {:pos [139 79], :direction \v, :turns 0}
+ {:pos [132 79], :direction \v, :turns 0}
+ {:pos [138 44], :direction \^, :turns 0}
+ {:pos [111 90], :direction \<, :turns 0}
+ {:pos [86 67], :direction \v, :turns 0}
+ {:pos [54 66], :direction \^, :turns 0}
+ {:pos [3 50], :direction \^, :turns 0}
+ {:pos [30 112], :direction \^, :turns 0}
+ {:pos [81 99], :direction \<, :turns 0}
+ {:pos [10 24], :direction \v, :turns 0}
+ {:pos [25 71], :direction \^, :turns 0})
+clj꞉aoc2018.day13꞉> 
+(count (clean-collitions (conj initial-carts (Cart. [44 106] \v 0))))
+16
+clj꞉aoc2018.day13꞉> 
+(count initial-carts)
+17
+clj꞉aoc2018.day13꞉> 
+initial-carts
+({:pos [44 106], :direction \v, :turns 0}
+ {:pos [3 32], :direction \^, :turns 0}
+ {:pos [126 141], :direction \<, :turns 0}
+ {:pos [99 72], :direction \>, :turns 0}
+ {:pos [118 60], :direction \^, :turns 0}
+ {:pos [138 23], :direction \^, :turns 0}
+ {:pos [139 79], :direction \v, :turns 0}
+ {:pos [132 79], :direction \v, :turns 0}
+ {:pos [138 44], :direction \^, :turns 0}
+ {:pos [111 90], :direction \<, :turns 0}
+ {:pos [86 67], :direction \v, :turns 0}
+ {:pos [54 66], :direction \^, :turns 0}
+ {:pos [3 50], :direction \^, :turns 0}
+ {:pos [30 112], :direction \^, :turns 0}
+ {:pos [81 99], :direction \<, :turns 0}
+ {:pos [10 24], :direction \v, :turns 0}
+ {:pos [25 71], :direction \^, :turns 0})
+clj꞉aoc2018.day13꞉> 
+clj꞉aoc2018.day13꞉> 
+
+clj꞉aoc2018.day13꞉> 
+clj꞉aoc2018.day13꞉> 
+([[100 21] 2])
+clj꞉aoc2018.day13꞉> 
+clj꞉aoc2018.day13꞉> 
+
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/looper2
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/looper2
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/looper2
+clj꞉aoc2018.day13꞉> 
+({:pos [134 21], :direction \>, :turns 2052}
+ {:pos [140 29], :direction \v, :turns 2056}
+ {:pos [21 57], :direction \v, :turns 2234}
+ {:pos [48 138], :direction \<, :turns 2402}
+ {:pos [16 142], :direction \<, :turns 2330})
+clj꞉aoc2018.day13꞉> 
+#'aoc2018.day13/looper2
+clj꞉aoc2018.day13꞉> 
+clj꞉aoc2018.day13꞉> 
+
+clj꞉aoc2018.day13꞉> 

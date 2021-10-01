@@ -48,7 +48,7 @@
 
 (defn carts-collitions [carts]
   (->> carts (map :pos) frequencies (filter #(> (second %) 1))))
-(defn carts-collide? [carts] (> 0 (count (carts-collitions carts))))
+(defn carts-collide? [carts] (> (count (carts-collitions carts) ) 0))
 
 (defn get-next-pos [pos dir]
   (let [x (first pos)
@@ -127,9 +127,17 @@
 
 (looper initial-carts)
 
-initial-carts
+(defn clean-collitions [carts]
+  (let [collition-points 
+        (map #(first %) (carts-collitions carts))]
+    (filter (fn [x] (not (co/lazy-contains? collition-points (:pos x)))) carts)))
 
-(-> initial-carts tick tick tick tick tick tick tick )
+(defn looper2 [carts]
+  (let [clean-carts (clean-collitions carts)]
+       (if (= 1 (count clean-carts)) clean-carts
+           (recur (tick (sort-by #(-> % :pos second) clean-carts))))))
+
+(looper2 initial-carts)
 
 (comment 
 (get map-input [0 13]))

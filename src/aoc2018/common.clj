@@ -20,3 +20,6 @@
   (some #(= elm %) coll))
 
 (defn ipow [b e] (Math/round (Math/pow b e)))
+
+(defn lazy-contains? [col key]
+  (some #{key} col))
